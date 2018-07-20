@@ -224,6 +224,20 @@
 			<key>defaults</key>
 			<string>com.chashmeet.hidestatusbaritemspro</string>
 			<key>key</key>
+			<string>sbTimeSwitch</string>
+			<key>label</key>
+			<string>Hide Time</string>
+			<key>PostNotification</key>
+			<string>com.chashmeet.hidestatusbaritemspro/preferences.changed</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.chashmeet.hidestatusbaritemspro</string>
+			<key>key</key>
 			<string>sbDNDSwitch</string>
 			<key>label</key>
 			<string>Hide Do Not Disturb</string>
@@ -424,16 +438,6 @@
 			<string>Follow me on Twitter!</string>
 			<key>icon</key>
 			<string>twitter.png</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSButtonCell</string>
-			<key>action</key>
-			<string>paypalDonateMethod</string>
-			<key>label</key>
-			<string>Buy me a coffee!</string>
-			<key>icon</key>
-			<string>paypal.png</string>
 		</dict>
 		<dict>
 			<key>label</key>

@@ -35,6 +35,7 @@ static BOOL lsOrientationLockSwitch = NO;
 static BOOL lsScreenMirroringSwitch = NO;
 static BOOL lsVpnSwitch = NO;
 
+static BOOL sbTimeSwitch = NO;
 static BOOL sbDNDSwitch = NO;
 static BOOL sbAirplaneModeSwitch = NO;
 static BOOL sbSignalStrengthSwitch = NO;
@@ -53,14 +54,14 @@ static BOOL locked;
 
 %hook SBCoverSheetPresentationManager
 
-int items[13] = {1, 2, 3, 4, 6, 8, 9, 12, 14, 17, 18, 20, 24};
+int items[14] = {0, 1, 2, 3, 4, 6, 8, 9, 12, 14, 17, 18, 20, 24};
 
 -(void)_notifyDelegateDidPresent {
 	locked = YES;
 
 	if (!enableTweak) return %orig;
 	NSLog(@"will present");
-	for (int i = 0; i < 13; i++ ) {
+	for (int i = 0; i < 14; i++ ) {
 		NSLog(@"Item %d", items[i]);
 		[[NSClassFromString(@"SBStatusBarStateAggregator") sharedInstance] updateStatusBarItem:items[i]];
    	}
@@ -72,7 +73,7 @@ int items[13] = {1, 2, 3, 4, 6, 8, 9, 12, 14, 17, 18, 20, 24};
 
 	if (!enableTweak) return %orig;
 	NSLog(@"will dismiss");
-	for (int i = 0; i < 13; i++ ) {
+	for (int i = 0; i < 14; i++ ) {
 		NSLog(@"Item %d", items[i]);
 		[[NSClassFromString(@"SBStatusBarStateAggregator") sharedInstance] updateStatusBarItem:items[i]];
    	}
@@ -82,6 +83,13 @@ int items[13] = {1, 2, 3, 4, 6, 8, 9, 12, 14, 17, 18, 20, 24};
 %end
 
 %hook SBStatusBarStateAggregator
+
+-(void)_updateTimeItems {
+	if (enableTweak && sbTimeSwitch) {
+		return;
+	}
+	return %orig;
+}
 
 -(BOOL)_setItem:(int)item enabled:(BOOL)enableItem {
 	// 0: Time but not working
@@ -113,6 +121,8 @@ int items[13] = {1, 2, 3, 4, 6, 8, 9, 12, 14, 17, 18, 20, 24};
 	//NSLog(@"locked called %d", locked);
 
 	switch (item) {
+		case 0:
+			return !locked && sbTimeSwitch ? %orig(item, NO) : %orig;
 		case 1:
 			return locked && lsDNDSwitch ? %orig(item, NO) : !locked && sbDNDSwitch ? %orig(item, NO) : %orig;
 		case 2:
@@ -149,6 +159,7 @@ int items[13] = {1, 2, 3, 4, 6, 8, 9, 12, 14, 17, 18, 20, 24};
 static void notificationCallback(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {	
 
 	enableTweak = [(NSNumber *)[[NSUserDefaults standardUserDefaults] objectForKey:@"enableTweak" inDomain:domainString] boolValue];
+	sbTimeSwitch = [(NSNumber *)[[NSUserDefaults standardUserDefaults] objectForKey:@"sbTimeSwitch" inDomain:domainString] boolValue];
 	
 	lsDNDSwitch = [(NSNumber *)[[NSUserDefaults standardUserDefaults] objectForKey:@"lsDNDSwitch" inDomain:domainString] boolValue];
 	sbDNDSwitch = [(NSNumber *)[[NSUserDefaults standardUserDefaults] objectForKey:@"sbDNDSwitch" inDomain:domainString] boolValue];
