@@ -1,0 +1,9 @@
+Package: com.chashmeet.hidestatusbaritemspro
+Name: HideStatusBarItemsPro
+Depends: mobilesubstrate
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: A simple tweak which allows you to hide specific elements in the status bar.
+Maintainer: Chashmeet Singh <chashmeetsingh@gmail.com>
+Author: Chashmeet Singh <chashmeetsingh@gmail.com>
+Section: Tweaks
