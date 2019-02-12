@@ -12,8 +12,8 @@ This is the Pro version of my first tweak HideStatusBarItems. Feel free to repor
 
 <table>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/chashmeetsingh/HideStatusBarItemsPro/master/Screenshots/Screenshot-1.PNG" height = "480" width="270"></td>
-    <td><img src="https://raw.githubusercontent.com/chashmeetsingh/HideStatusBarItemsPro/master/Screenshots/Screenshot-2.PNG" height = "480" width="270"></td>
-    <td><img src="https://raw.githubusercontent.com/chashmeetsingh/HideStatusBarItemsPro/master/Screenshots/Screenshot-3.PNG" height = "480" width="270"></td>
+    <td><img src="https://raw.githubusercontent.com/chashmeetsingh/HideStatusBarItemsPro/57b112ce0cf7f83f0c718c01a116e44481cfab2f/Screenshots/Screenshot-1.PNG" height = "480" width="270"></td>
+    <td><img src="https://raw.githubusercontent.com/chashmeetsingh/HideStatusBarItemsPro/57b112ce0cf7f83f0c718c01a116e44481cfab2f/Screenshots/Screenshot-2.PNG" height = "480" width="270"></td>
+    <td><img src="https://raw.githubusercontent.com/chashmeetsingh/HideStatusBarItemsPro/57b112ce0cf7f83f0c718c01a116e44481cfab2f/Screenshots/Screenshot-3.PNG" height = "480" width="270"></td>
   </tr>
 </table>
